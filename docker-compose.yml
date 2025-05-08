@@ -6,7 +6,7 @@ services:
       context: ./backend
     container_name: chat-backend
     ports:
-      - '5050:5050'
+      - '15050:5050'
     env_file:
       - ./backend/.env
     networks:
