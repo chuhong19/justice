@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: chat-backend
+    ports:
+      - '5050:5050'
+    env_file:
+      - ./backend/.env
+    networks:
+      - chat-app
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: chat-frontend
+    ports:
+      - '3000:80'
+    networks:
+      - chat-app
+
+networks:
+  chat-app:
+    driver: bridge
